@@ -16,7 +16,7 @@ class Currency
   end
 
   def times number
-    Currency.new(@amount*number, @denomination)
+    Currency.new(@amount * number, @denomination)
   end
 
   def plus currency
@@ -25,6 +25,14 @@ class Currency
 
   def minus currency
     Currency.new(@amount - currency.amount, @denomination)
+  end
+
+  def to denomination
+    if denomination == :usd
+      return @amount / 0.69
+    elsif denomination == :gbp
+      return @amount * 0.69
+    end
   end
 
 end
